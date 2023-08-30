@@ -89,7 +89,6 @@ main{
 }
 .global-clock{
     background-color: #cfffdd;
-    margin-top: 10%;
     width: 40%;
     height: 10%;
     border-radius: 10px;
@@ -99,7 +98,6 @@ main{
 }
 .pomodoro-clock{
     background-color: #cfffdd;
-    margin: 10%;
     width: 80%;
     height: 30%;
     border-radius: 10px;
@@ -108,15 +106,33 @@ main{
     font-size: 3.5em;
     font-weight: 500;
 }
+
+.cont-button{
+    width: 80%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+}
+.recess-time{
+    text-align: center;
+    font-size: 5rem;
+}
 .stop-button{
     border: none;
+    margin-top: 5%;
     border-radius: 10px;
     width: 40%;
-    height: 15%;
+    height: 60%;
     background-color: #cfffdd;
     color: #5c5863;
     font-weight: 900;
 }
+.description{
+    margin: 5%;
+    font-size: 1em;
+    color: #5c5863;
+}
+
 .inactive{
     display: none;
 }

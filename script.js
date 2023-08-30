@@ -4,8 +4,10 @@ const divSetLongBreak = document.querySelector('.set-long-break')
 const divClocks = document.querySelector('.cont-clock')
 const pGlobalClock = document.querySelector('.global-clock')
 const pPomodoroClock = document.querySelector('.pomodoro-clock')
+const stopSoundButton = document.querySelector('.recess-time')
 
 startButton.addEventListener('click',startClock)
+
 
 function startClock () {
     const breakInput = Number(longBreakInput.value)
@@ -48,7 +50,9 @@ const pomodoroInterval = (clock) => {
     const breakInput = Number(longBreakInput.value)
     setInterval(() => {
     pPomodoroClock.textContent = (`${clock.hour}:${clock.minutes}:${clock.seconds}`)
+    //Count LongBreak
     if(lapses.longBreak == 4){
+        stopSoundButton.classList.remove('inactive')
         if(clock.seconds > 58){
             clock.seconds = 0
             if(clock.minutes > breakInput - 2){
@@ -59,8 +63,9 @@ const pomodoroInterval = (clock) => {
             }else{clock.minutes++}
         }else{clock.seconds++}
     }else{
-        //Count until 5 min
+        //Count break
         if(lapses.break === 1){
+            stopSoundButton.classList.remove('inactive')
             if(clock.seconds > 58){
                 clock.seconds = 0
                 if(clock.minutes > 3){
@@ -72,6 +77,7 @@ const pomodoroInterval = (clock) => {
         }
         //Count until 25 min
         else{if(clock.seconds > 58){
+            stopSoundButton.classList.add('inactive')
             clock.seconds = 0
             if(clock.minutes > 23){
                 clock.minutes = 0
