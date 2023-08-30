@@ -1,3 +1,23 @@
+const longBreakInput = document.querySelector('.break-minutes')
+const startButton = document.querySelector('.start-button')
+const divSetLongBreak = document.querySelector('.set-long-break')
+const divClocks = document.querySelector('.cont-clock')
+const pGlobalClock = document.querySelector('.global-clock')
+const pPomodoroClock = document.querySelector('.pomodoro-clock')
+
+startButton.addEventListener('click',startClock)
+
+function startClock () {
+    const breakInput = Number(longBreakInput.value)
+    console.log(breakInput)
+    if(breakInput <= 30 && breakInput >= 15){
+        divSetLongBreak.classList.toggle('inactive')
+        divClocks.classList.toggle('inactive')
+        globalInterval(globalClock)
+        pomodoroInterval(pomodoroClock)
+    }
+}
+
 //Class for Pomodor's lapses
 const lapses = {
     break: 0,
@@ -15,12 +35,7 @@ class Clock {
         this.seconds = seconds
     }       
 }
-//Instance Clock
-const globalClock = new Clock ({
-    hour: 0,
-    minutes: 0,
-    seconds: 0,
-})
+
 
 const pomodoroClock = new Clock ({
     hour: 0,
@@ -29,13 +44,14 @@ const pomodoroClock = new Clock ({
     }
 )
 
-//Functions for lapses
 const pomodoroInterval = (clock) => {
+    const breakInput = Number(longBreakInput.value)
     setInterval(() => {
+    pPomodoroClock.textContent = (`${clock.hour}:${clock.minutes}:${clock.seconds}`)
     if(lapses.longBreak == 4){
         if(clock.seconds > 58){
             clock.seconds = 0
-            if(clock.minutes > 13){
+            if(clock.minutes > breakInput - 2){
                 clock.minutes = 0
                 clock.seconds = 0
                 lapses.break = 0
@@ -65,9 +81,17 @@ const pomodoroInterval = (clock) => {
             } else{clock.minutes++}
         } else{clock.seconds++}}
     }
-        console.log(`Pomodoro${clock.hour}:${clock.minutes}:${clock.seconds}`)}, 10)
+        console.log(`Pomodoro${clock.hour}:${clock.minutes}:${clock.seconds}`)}, 1000)
 }
+
+const globalClock = new Clock ({
+    hour: 0,
+    minutes: 0,
+    seconds: 0,
+})
+
 const globalInterval = (clock) => {setInterval(() => {
+    pGlobalClock.textContent = (`${clock.hour}:${clock.minutes}:${clock.seconds}`)
     if(clock.seconds > 58){
         clock.seconds = 0
         if(clock.minutes > 58){
@@ -78,10 +102,8 @@ const globalInterval = (clock) => {setInterval(() => {
         }
         else{clock.minutes++}
     }else{clock.seconds++}
-    
     console.log(`${clock.hour}:${clock.minutes}:${clock.seconds}`)}, 1000)
 }
 
 
-globalInterval(globalClock)
-pomodoroInterval(pomodoroClock)
+

@@ -3,9 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-html{
-    font-size: 17.45px;
-}
+
 body{
     background-color: #cfffdd;
 }
@@ -63,12 +61,13 @@ main{
 .start-button:hover {
     height: 12%;
     width: 22%;
+    font-size: 0.4em;
 }
 
 .start-button:active{
     height: 8%;
     width: 18%;
-    font-size: 0.8em;
+    font-size: 0.3em;
 }
 .set-long-break p{
     color: #5c5863;
@@ -77,4 +76,47 @@ main{
 .explaining-paragraph{
     margin-top: 10%;
     text-align: center;
+}
+
+.cont-clock{
+    background-color: #b4dec1;
+    width: 70vw;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+.global-clock{
+    background-color: #cfffdd;
+    margin-top: 10%;
+    width: 40%;
+    height: 10%;
+    border-radius: 10px;
+    text-align: center;
+    color: #5c5863;
+    font-size: 1.2em;
+}
+.pomodoro-clock{
+    background-color: #cfffdd;
+    margin: 10%;
+    width: 80%;
+    height: 30%;
+    border-radius: 10px;
+    text-align: center;
+    color: #5c5863;
+    font-size: 3.5em;
+    font-weight: 500;
+}
+.stop-button{
+    border: none;
+    border-radius: 10px;
+    width: 40%;
+    height: 15%;
+    background-color: #cfffdd;
+    color: #5c5863;
+    font-weight: 900;
+}
+.inactive{
+    display: none;
 }
