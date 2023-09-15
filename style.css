@@ -2,41 +2,52 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 body{
-    background-color: #cfffdd;
+    background-color: #ff1b43;
+    background-image: linear-gradient(0deg, #ff1b45b9 0%, #dbecec 100%);
 }
 main{
     display: flex;
+    width: 100vw;
+    height: 100vh;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
 .main-title{
-    color: #ff1f4c;
-    margin-top: 5%;
+    color: #ff2551;
+    text-shadow: 0 0 3px black;
     font-size: 3rem;
     text-align: center;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 }
 
 .set-long-break{
-    width: 50vw;
+    width: 80%;
     height: 50vh;
-    background-color: #b4dec1;
+    background-color: #00000057;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.445);
 }
 
 .second-title{
     margin-top: 5%;
     margin-bottom: 5%;
-    color: #5c5863;
+    color: rgb(226, 226, 226);
+    font-size: 1.8em;
+    text-align: center;
+}
+.set-paragraph{
     font-size: 1.2em;
+    color: rgb(226, 226, 226);
+    padding: 10px;
     text-align: center;
 }
 .break-minutes{
@@ -44,40 +55,39 @@ main{
     height: 10%;
     margin-bottom: 5%;
     border: 0;
-    border-radius: 10px;
-    background-color: #cfffdd;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.39);
+    text-align: end;
+    font-size: 1.5em;
+    width: 50%;
 }
 
 .start-button{
-    border-radius: 10px;
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.164);
+    border-radius: 20px;
     border: 0;
     height: 10%;
     width: 30%;
-    background-color: #5c5863;
-    color: #cfffdd;
+    background-color: rgba(255, 255, 255, 0.151);
+    color: white;
     font-weight: 800;
-    font-size: 0.6em;
+    font-size: 0.8em;
+    transition: 0.25s linear;
+}
+
+.explaining-paragraph{
+    font-size: 1em;
+    color: rgb(226, 226, 226);
+    padding: 10px;
+    text-align: center;
 }
 .start-button:hover {
-    height: 12%;
-    width: 22%;
-    font-size: 0.4em;
+    transform: scale(1.2);
 }
 
 .start-button:active{
-    height: 8%;
-    width: 18%;
-    font-size: 0.3em;
+    transform: scale(0.9);
 }
-.set-long-break p{
-    color: #5c5863;
-    font-size: 0.6em;
-}
-.explaining-paragraph{
-    margin-top: 10%;
-    text-align: center;
-}
-
 .cont-clock{
     background-color: #b4dec1;
     width: 70vw;
