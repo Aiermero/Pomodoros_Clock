@@ -87,35 +87,54 @@ main{
 }
 
 .start-button:active{
-    transform: scale(0.9);
+    transform: scale(1);
 }
 .cont-clock{
-    background-color: #b4dec1;
-    width: 70vw;
-    height: 40vh;
+    width: 80%;
+    height: 50vh;
+    background-color: #00000057;
+    border-radius: 30px;
     display: flex;
-    align-items: center;
     flex-direction: column;
-    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.445);
+}
+.estudio{
+    font-size: 1.8em;
+    color: rgb(226, 226, 226);
+    padding: 10px;
+    text-align: center;
 }
 .global-clock{
-    background-color: #cfffdd;
-    width: 40%;
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.164);
+    border-radius: 20px;
+    border: 0;
     height: 10%;
-    border-radius: 10px;
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.151);
+    color: white;
+    font-weight: 800;
+    font-size: 2em;
     text-align: center;
-    color: #5c5863;
-    font-size: 1.2em;
+}
+.pomodoro_p{
+    font-size: 1.8em;
+    color: rgb(226, 226, 226);
+    padding: 10px;
+    text-align: center;
 }
 .pomodoro-clock{
-    background-color: #cfffdd;
-    width: 80%;
-    height: 30%;
-    border-radius: 10px;
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.164);
+    border-radius: 20px;
+    border: 0;
+    height: 10%;
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.151);
+    color: white;
+    font-weight: 800;
+    font-size: 2em;
     text-align: center;
-    color: #5c5863;
-    font-size: 3.5em;
-    font-weight: 500;
 }
 
 .cont-button{
@@ -129,21 +148,25 @@ main{
     font-size: 5rem;
 }
 .stop-button{
-    border: none;
-    margin-top: 5%;
-    border-radius: 10px;
-    width: 40%;
-    height: 60%;
-    background-color: #cfffdd;
-    color: #5c5863;
-    font-weight: 900;
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.164);
+    border-radius: 20px;
+    border: 0;
+    height: 10%;
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.151);
+    color: white;
+    font-weight: 800;
+    font-size: 1.2em;
+    transition: 0.25s linear;
+    margin-top: 15%;
 }
-.description{
-    margin: 5%;
-    font-size: 1em;
-    color: #5c5863;
+.stop-button:hover {
+    transform: scale(1.2);
 }
 
+.stop-button:active{
+    transform: scale(1);
+}
 .inactive{
     display: none;
 }
