@@ -1,22 +1,16 @@
-const longBreakInput = document.querySelector('.break-minutes')
-const startButton = document.querySelector('.start-button')
-const divSetLongBreak = document.querySelector('.set-long-break')
-const divClocks = document.querySelector('.cont-clock')
-const pGlobalClock = document.querySelector('.global-clock')
-const pPomodoroClock = document.querySelector('.pomodoro-clock')
-const stopSoundButton = document.querySelector('.recess-time')
-
 startButton.addEventListener('click',startClock)
+returnButton.addEventListener('click', function (){location.reload()})
+
 
 
 function startClock () {
     const breakInput = Number(longBreakInput.value)
     console.log(breakInput)
     if(breakInput <= 30 && breakInput >= 15){
-        divSetLongBreak.classList.toggle('inactive')
-        divClocks.classList.toggle('inactive')
         globalInterval(globalClock)
         pomodoroInterval(pomodoroClock)
+        divSetLongBreak.classList.add('desaparece')
+        divClocks.classList.add('aparecer-container-return')
     }
 }
 
@@ -48,11 +42,11 @@ const pomodoroClock = new Clock ({
 
 const pomodoroInterval = (clock) => {
     const breakInput = Number(longBreakInput.value)
-    setInterval(() => {
+    let intervalClock = setInterval(() => {
     pPomodoroClock.textContent = (`${clock.hour}:${clock.minutes}:${clock.seconds}`)
     //Count LongBreak
     if(lapses.longBreak == 4){
-        stopSoundButton.classList.remove('inactive')
+        recessTime.classList.add('aparecer-container-return')
         if(clock.seconds > 58){
             clock.seconds = 0
             if(clock.minutes > breakInput - 2){
@@ -65,7 +59,7 @@ const pomodoroInterval = (clock) => {
     }else{
         //Count break
         if(lapses.break === 1){
-            stopSoundButton.classList.remove('inactive')
+            recessTime.classList.add('aparecer-container-return')
             if(clock.seconds > 58){
                 clock.seconds = 0
                 if(clock.minutes > 3){
@@ -77,7 +71,7 @@ const pomodoroInterval = (clock) => {
         }
         //Count until 25 min
         else{if(clock.seconds > 58){
-            stopSoundButton.classList.add('inactive')
+            recessTime.classList.add('desaparece')
             clock.seconds = 0
             if(clock.minutes > 23){
                 clock.minutes = 0
@@ -88,6 +82,10 @@ const pomodoroInterval = (clock) => {
         } else{clock.seconds++}}
     }
         console.log(`Pomodoro${clock.hour}:${clock.minutes}:${clock.seconds}`)}, 1000)
+        stopButton.addEventListener('click', () => {
+            clearInterval(intervalClock)
+
+        })
 }
 
 const globalClock = new Clock ({
@@ -96,7 +94,8 @@ const globalClock = new Clock ({
     seconds: 0,
 })
 
-const globalInterval = (clock) => {setInterval(() => {
+const globalInterval = (clock) => {
+    let pomodoroInterval = setInterval(() => {
     pGlobalClock.textContent = (`${clock.hour}:${clock.minutes}:${clock.seconds}`)
     if(clock.seconds > 58){
         clock.seconds = 0
@@ -109,6 +108,12 @@ const globalInterval = (clock) => {setInterval(() => {
         else{clock.minutes++}
     }else{clock.seconds++}
     console.log(`${clock.hour}:${clock.minutes}:${clock.seconds}`)}, 1000)
+    stopButton.addEventListener('click', () => {
+        clearInterval(pomodoroInterval)
+        blackBack.classList.add('aparecer-black')
+        lastContainer.classList.add('aparecer-container-return')
+        lastDialog.textContent = `Tu tiempo de estudio ha sido de ${clock.hour}:${clock.minutes}:${clock.seconds}`
+    })
 }
 
 
